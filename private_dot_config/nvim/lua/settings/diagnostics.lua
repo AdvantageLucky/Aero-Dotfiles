@@ -2,9 +2,9 @@
 
 vim.diagnostic.config({
 	signs = {
-		numhl = { "DiagnosticSignError", "DiagnosticSignWarn", "DiagnosticSignInfo", "DiagnosticSignHint" },
-		text = { " ", " ", "󰋼 ", "󰌶" },
-		texthl = { "DiagnosticSignError", "DiagnosticSignWarn", "DiagnosticSignInfo", "DiagnosticSignHint" },
+		numhl = { "DiagnosticSignError", "DiagnosticSignWarn", "DiagnosticSignInfo", "DiagnosticSignHint" }, -- line
+		text = { " ", " ", "󰋼 ", "󰌶" }, -- sign column
+		texthl = { "DiagnosticSignError", "DiagnosticSignWarn", "DiagnosticSignInfo", "DiagnosticSignHint" }, -- text highlighting
 	},
 
 	float = {

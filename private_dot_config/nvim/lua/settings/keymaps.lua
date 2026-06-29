@@ -1,68 +1,70 @@
-local opts = { noremap = true, silent = true }
-vim.g.mapleader = " "
+local nmap = function(lhs, rhs, desc)
+	vim.keymap.set("n", lhs, rhs, { noremap = true, silent = true, desc = desc })
+end
 
 -- @GENERIC SHORTCUTS
-vim.keymap.set("n", "<leader>y", "<cmd> %y+ <CR>")
 vim.keymap.set("i", "<C-a>", "<Home>")
 vim.keymap.set("i", "<C-e>", "<End>")
+nmap("<leader>y", "<cmd> %y+ <CR>", "copy all file")
 
 -- @SEARCH
 local builtin = require("telescope.builtin")
 
 -- Telescope Files
-vim.keymap.set("n", "<C-p>", builtin.find_files, opts)
-vim.keymap.set("n", "<C-o>", builtin.oldfiles, opts)
+nmap("<C-p>", builtin.find_files, "search files in current file directory")
+nmap("<C-o>", builtin.oldfiles, "find old visited files")
 
 -- Telescope Strings
-vim.keymap.set("n", "<C-l>", builtin.live_grep, opts)
+nmap("<C-l>", builtin.live_grep, "grep files in current file directory")
 
 -- Telescope History
-vim.keymap.set("n", "<C-c>", builtin.command_history, opts)
-vim.keymap.set("n", "<C-s>", builtin.search_history, opts)
+nmap("<C-c>", builtin.command_history, "command history")
+nmap("<C-s>", builtin.search_history, "search history")
 
 -- Telescope Diagnostics
-vim.keymap.set("n", "<C-d>", builtin.diagnostics, opts)
+nmap("<C-d>", builtin.diagnostics, "find LSP diagnostics in current visited files")
 
 -- Telescope Git
-vim.keymap.set("n", "<leader>gs", builtin.git_status, opts)
-vim.keymap.set("n", "<leader>gc", builtin.git_commits, opts)
-vim.keymap.set("n", "<leader>gb", builtin.git_branches, opts)
+nmap("<leader>gs", builtin.git_status, "git status")
+nmap("<leader>gc", builtin.git_commits, "git commits (log)")
+nmap("<leader>gb", builtin.git_branches, "change between branches")
 
 -- Oil
-vim.keymap.set("n", "<C-{>", "<cmd> Oil<CR>", opts)
-vim.keymap.set("n", "-", "<cmd> Oil --float<CR>", opts)
+nmap("<C-{>", "<cmd>Oil<CR>", "file explorer")
+nmap("-", "<cmd> Oil --float<CR>", "floating window file explorer")
 
 -- @LSP
-vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
-vim.keymap.set("n", "<leader>re", vim.lsp.buf.rename, opts)
-vim.keymap.set("n", "<leader>gd", vim.lsp.buf.definition, opts)
-vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, opts)
-vim.keymap.set("n", "<leader>gf", function() -- format
+nmap("K", vim.lsp.buf.hover, "see hover under cursor")
+nmap("<leader>re", vim.lsp.buf.rename, "rename string under cursor")
+nmap("<leader>gd", vim.lsp.buf.definition, "go to definition under cursor")
+nmap("gr", vim.lsp.buf.references, "see references under cursor")
+nmap("<leader>ca", vim.lsp.buf.code_action, "see code actions under cursor")
+nmap("<leader>gf", function() -- format
 	require("conform").format({ lsp_format = "fallback" })
-end, opts)
+end, "format current file if possible")
 
 -- LSP Manager
-vim.keymap.set("n", "<C-k>", "<cmd>Mason<CR>", opts)
+nmap("<C-k>", "<cmd>Mason<CR>", "LSP manager")
 
 -- @DIAGNOSTICS
-vim.keymap.set("n", "<leader>e", vim.diagnostic.open_float, opts)
-vim.keymap.set("n", "<leader>q", vim.diagnostic.setloclist, opts)
-vim.keymap.set("n", "<leader>h", function()
+nmap("<leader>e", vim.diagnostic.open_float, "see current LSP diagnostic under cursor in floating window")
+nmap("<leader>q", vim.diagnostic.setloclist, "see LSP diagnostics in current file")
+nmap("<leader>h", function()
 	vim.diagnostic.enable(not vim.diagnostic.is_enabled())
-end, opts)
+end, "toggle diagnostics in current file")
 
 -- @TERMINAL
 -- vim Builtin Terminal
-vim.keymap.set("n", "<leader>t", function()
+nmap("<leader>t", function()
 	vim.cmd.vsplit()
 	vim.api.nvim_win_set_width(0, 40)
 	vim.cmd.term()
 	vim.cmd.startinsert()
-end, opts)
-vim.keymap.set("t", "<Esc>", "<C-\\><C-n>", opts) -- vim modes in Terminal
+end, "toggle terminal in right vsplit")
+vim.keymap.set("t", "<Esc>", "<C-\\><C-n>", { noremap = true, silent = true }) -- vim modes in Terminal
 
 -- @VSPLIT
-vim.keymap.set("n", "<leader>vs", "<cmd>vsplit<CR>", opts)
+nmap("<leader>vs", "<cmd>vsplit<CR>", "right vsplit")
 
 -- @UNDOTREE
-vim.keymap.set("n", "<leader>u", require("undotree").open)
+nmap("<leader>u", require("undotree").open, "open undotree")
