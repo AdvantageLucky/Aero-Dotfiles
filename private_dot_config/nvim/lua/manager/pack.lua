@@ -32,6 +32,7 @@ vim.pack.add({
 	-- Misc
 	{ src = "https://github.com/windwp/nvim-autopairs" },
 	{ src = "https://github.com/catgoose/nvim-colorizer.lua" },
+	{ src = "https://github.com/vyfor/cord.nvim" },
 
 	-- Parser
 	{ src = "https://github.com/nvim-treesitter/nvim-treesitter" },
@@ -50,6 +51,7 @@ vim.pack.add({
 	-- Notes
 	{ src = "https://github.com/MeanderingProgrammer/render-markdown.nvim" },
 	{ src = "https://github.com/f3fora/cmp-spell" },
+	{ src = "https://github.com/3rd/image.nvim" },
 })
 
 -- @REQUIRES
@@ -68,6 +70,7 @@ require("plugins.lsp.completions.nvim_cmp")
 -- Misc
 require("plugins.utils.misc.autopairs")
 require("plugins.utils.misc.colorizer")
+require("plugins.utils.misc.discord")
 
 -- Parser
 require("plugins.utils.parser.treesitter")
@@ -78,3 +81,4 @@ require("plugins.utils.search.telescope")
 
 -- Notes
 require("plugins.utils.notes.render_markdown")
+require("plugins.utils.notes.image")
