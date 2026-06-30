@@ -7,7 +7,7 @@ A minimalist configuration for SwayFX WM focused on the **Frutiger Aero / Aqua C
 ---
 <img width="1920" height="1080" alt="rice" src="https://github.com/user-attachments/assets/80fc8e37-b496-4822-b5d8-11c95a3be593" />
 
-<img width="1920" height="1080" alt="rice2" src="https://github.com/user-attachments/assets/9d0bfb4b-3c7c-488f-b7ea-785cb4d42009" />
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/9875c445-410a-4bd7-96d0-35890a58aba8" />
 
 ---
 
