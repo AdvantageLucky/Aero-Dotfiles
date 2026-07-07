@@ -52,7 +52,7 @@ sudo pacman -S --needed --noconfirm \
 print_step "Instalando SwayFX y componentes de interfaz..."
 yay -S --needed --noconfirm swayfx
 sudo pacman -S --needed --noconfirm \
-    swaybg swayidle waybar fuzzel mako \
+    swaybg swayidle waybar fuzzel mako autotiling-rs wlsunset \
     xorg-xwayland wl-clipboard polkit-gnome \
     grim slurp swappy \
     brightnessctl papirus-icon-theme
