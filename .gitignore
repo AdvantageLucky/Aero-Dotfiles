@@ -1,2 +1,15 @@
-*.json
-undodir/
+# Estado de nvim (no es configuración)
+private_dot_config/nvim/undodir/
+private_dot_config/nvim/spell/
+
+# Estado de fish: cambia solo y puede acumular secretos exportados
+private_dot_config/private_fish/private_fish_variables
+
+# Archivos temporales de editores
+*.swp
+*.swo
+*~
+
+# Restos de chezmoi merge
+*.orig
+*.rej
