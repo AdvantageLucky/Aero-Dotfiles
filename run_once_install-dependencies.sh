@@ -88,6 +88,10 @@ yay -S --needed --noconfirm \
     wlogout \
     pinfo timg
 
+# @Mantenimiento
+print_step "Configurando limpieza automatica de cache de pacman..."
+sudo pacman -S --needed --noconfirm pacman-contrib
+sudo systemctl enable paccache.timer
 
 # Shell
 print_step "Configurando Fish como shell predeterminada..."
