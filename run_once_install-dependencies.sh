@@ -35,7 +35,7 @@ sudo pacman -S --needed --noconfirm \
     ttf-inter \
     ttf-liberation \
     noto-fonts noto-fonts-cjk noto-fonts-emoji \
-    ttf-nerd-fonts-symbols-mono
+    ttf-nerd-fonts-symbols-mono otf-geist-mono-nerd
 
 # @Lenguajes y Runtimes
 print_step "Instalando Runtimes y Lenguajes..."
@@ -68,7 +68,7 @@ sudo systemctl enable --now bluetooth
 # @Terminal y Shell
 print_step "Instalando Terminal, Shell y utilidades CLI..."
 sudo pacman -S --needed --noconfirm \
-    foot fish eza fzf fd bat ripgrep zoxide btop \
+    foot fish eza fzf fd bat ripgrep zoxide btop git-delta \
     wget unzip zip p7zip fortune-mod
 
 # @Editores y Aplicaciones
@@ -76,19 +76,18 @@ print_step "Instalando Editores y Apps principales..."
 sudo pacman -S --needed --noconfirm \
     neovim vim nano tree-sitter tree-sitter-cli \
     nautilus gvfs gvfs-mtp \
-    imv mpv zathura zathura-pdf-mupdf oculante
+    imv mpv zathura zathura-pdf-mupdf obsidian
 
 # @AUR Packages
 print_step "Instalando paquetes desde AUR..."
 yay -S --needed --noconfirm \
     zen-browser-bin \
-    swaylock-effects-git \
-    eww-wayland-git \
+    swaylock-effects \
+    eww \
     phinger-cursors \
-    gtk-engine-murrine \
     wlogout \
-    ttf-geist-mono-nerd \
-    obsidian
+    pinfo timg
+
 
 # Shell
 print_step "Configurando Fish como shell predeterminada..."
