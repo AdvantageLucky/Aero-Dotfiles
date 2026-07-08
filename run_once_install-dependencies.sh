@@ -60,7 +60,7 @@ sudo pacman -S --needed --noconfirm \
 # @Audio y Red
 print_step "Instalando Audio y Red..."
 sudo pacman -S --needed --noconfirm \
-    pipewire pipewire-pulse pipewire-alsa pipewire-jack wireplumber pavucontrol \
+    pipewire pipewire-pulse pipewire-alsa pipewire-jack wireplumber pavucontrol playerctl \
     networkmanager nm-connection-editor bluez bluez-utils blueman
 sudo systemctl enable --now NetworkManager
 sudo systemctl enable --now bluetooth
@@ -92,6 +92,7 @@ yay -S --needed --noconfirm \
 print_step "Configurando limpieza automatica de cache de pacman..."
 sudo pacman -S --needed --noconfirm pacman-contrib
 sudo systemctl enable paccache.timer
+sudo systemctl enable fstrim.timer
 
 # Shell
 print_step "Configurando Fish como shell predeterminada..."
