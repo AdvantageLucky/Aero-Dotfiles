@@ -1,23 +1,30 @@
 #!/bin/bash
 
-# Screenshot script for Frutiger Aero theme
-# Usage: ./screenshot.sh [full|selection]
+# Screenshot: full | selection
+# Capture, open swappy to annotate, copy to clipboard and notify.
 
-mkdir -p ~/Pictures/Screenshots
+DIR=~/Pictures/Screenshots
+mkdir -p "$DIR"
 
 case $1 in
     full)
-        FILE=~/Pictures/Screenshots/full_$(date +'%Y-%m-%d_%H-%M-%S').png
-        grim - | convert - "$FILE"
-        swappy -f "$FILE" -o "$FILE"
-        wl-copy -t image/png < "$FILE"
-        notify-send -a "System" -i "$FILE" "Captura" "Captura de pantalla guardada"
+        FILE="$DIR/full_$(date +'%Y-%m-%d_%H-%M-%S').png"
+        grim "$FILE"
+        TITLE="Captura"
+        MSG="Captura de pantalla guardada"
         ;;
     selection)
-        FILE=~/Pictures/Screenshots/area_$(date +'%Y-%m-%d_%H-%M-%S').png
-        grim -g "$(slurp)" - | convert - "$FILE"
-        swappy -f "$FILE" -o "$FILE"
-        wl-copy -t image/png < "$FILE"
-        notify-send -a "System" -i "$FILE" "Captura de Area" "Captura de area guardada"
+        FILE="$DIR/area_$(date +'%Y-%m-%d_%H-%M-%S').png"
+        # cancelling slurp (Esc) must not leave a file or notify
+        grim -g "$(slurp)" "$FILE" || exit 0
+        TITLE="Captura de Area"
+        MSG="Captura de area guardada"
+        ;;
+    *)
+        exit 1
         ;;
 esac
+
+swappy -f "$FILE" -o "$FILE"
+wl-copy -t image/png < "$FILE"
+notify-send -a "System" -i "$FILE" "$TITLE" "$MSG"

@@ -1,10 +1,15 @@
 #!/bin/bash
 
-# Volume and Mic control for Frutiger Aero theme
+# Volume and Mic control
 
 case $1 in
     up)
-        pactl set-sink-volume @DEFAULT_SINK@ +5%
+        CUR=$(pactl get-sink-volume @DEFAULT_SINK@ | grep -Po "\d+(?=%)" | head -1)
+        if (( CUR + 5 >= 100 )); then
+            pactl set-sink-volume @DEFAULT_SINK@ 100%
+        else
+            pactl set-sink-volume @DEFAULT_SINK@ +5%
+        fi
         ;;
     down)
         pactl set-sink-volume @DEFAULT_SINK@ -5%

@@ -1,14 +1,13 @@
 #!/bin/bash
 
-# Brightness control for Frutiger Aero theme
-# Solid and simple version
+# Brightness control
 
 case $1 in
     up)
         brightnessctl set +5%
         ;;
     down)
-        brightnessctl set 5%-
+        brightnessctl --min-value=1 set 5%-
         ;;
 esac
 

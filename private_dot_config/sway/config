@@ -1,12 +1,31 @@
-# Essential
-include ~/.config/sway/init/*
-include ~/.config/sway/utils/*
+# ~/.config/sway/config
+#
+# Structure:
+#   init/      variables, input (keyboard/touchpad) and outputs
+#   windows/   appearance (gaps, borders, swayfx) and per-app effects
+#   bar/       waybar
+#   wallpaper/ wallpaper
+#   keybinds/  WM shortcuts and hardware keys
+#   utils/     autostart (daemons live in scripts/autostart.sh)
+#
 
-# UI
-include ~/.config/sway/bar/*
-include ~/.config/sway/windows/*
+# @Init
+include ~/.config/sway/init/variables.conf
+include ~/.config/sway/init/inputs.conf
+include ~/.config/sway/init/outputs.conf
 
-# Extras
+# @UI
+include ~/.config/sway/windows/windows.conf
+include ~/.config/sway/windows/rules.conf
+include ~/.config/sway/bar/bar.conf
 include ~/.config/sway/wallpaper/wallpaper.conf
-include ~/.config/sway/keybinds/*
+
+# @Keybinds
+include ~/.config/sway/keybinds/keybinds.conf
+include ~/.config/sway/keybinds/hardware.conf
+
+# @Autostart
+include ~/.config/sway/utils/autostart.conf
+
+# System drop-ins (Arch dbus/systemd integration)
 include /etc/sway/config.d/*

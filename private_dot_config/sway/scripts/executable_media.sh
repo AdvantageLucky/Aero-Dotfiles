@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Media control (playerctl) for Frutiger Aero theme
+# Media control (playerctl)
 
 case $1 in
     play-pause) playerctl play-pause ;;
@@ -8,7 +8,7 @@ case $1 in
     prev)       playerctl previous ;;
 esac
 
-# breve espera para que el reproductor actualice la metadata
+# brief wait so the player updates its metadata
 sleep 0.3
 
 STATUS=$(playerctl status 2>/dev/null) || exit 0
@@ -16,7 +16,7 @@ TITLE=$(playerctl metadata title 2>/dev/null)
 ARTIST=$(playerctl metadata artist 2>/dev/null)
 ART_URL=$(playerctl metadata mpris:artUrl 2>/dev/null)
 
-# resolver la caratula: local directa, remota se cachea por url
+# Cover art: local used directly, remote cached by url
 ICON=""
 case $ART_URL in
     file://*)

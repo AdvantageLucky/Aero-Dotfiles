@@ -9,4 +9,5 @@ for i in $(seq 1 10); do
     sleep 0.5
 done
 
-eww open-many cat_win senna_win fortune_win
+#eww open-many cat_win senna_win fortune_win
+eww open fortune_win

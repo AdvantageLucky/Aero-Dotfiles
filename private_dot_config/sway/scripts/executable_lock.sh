@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Frutiger Aero / Aqua Crystal Lock Script
+# Frutiger Aero / Aqua Crystal Lock 
 swaylock \
     --screenshots \
     --clock \
