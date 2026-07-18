@@ -1,2 +1,5 @@
 README.md
 components-list.md
+.config/nvim/undodir
+.config/nvim/spell
+.config/fish/fish_variables
