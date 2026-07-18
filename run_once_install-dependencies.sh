@@ -87,7 +87,6 @@ yay -S --needed --noconfirm \
     zen-browser-bin \
     swaylock-effects \
     eww \
-    phinger-cursors \
     wlogout \
     pinfo timg
 
