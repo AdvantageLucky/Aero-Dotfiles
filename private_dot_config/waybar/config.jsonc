@@ -1,7 +1,7 @@
 {
   "spacing": 0,
   "height": 0,
-  "margin-top": 1,
+  "margin-top": 0,
   "margin-bottom": 0,
   "margin-right": 0,
   "margin-left": 0,
@@ -21,6 +21,9 @@
 
   "modules-right": [
     "tray",
+    "custom/updates",
+    "custom/wallpaper",
+    "idle_inhibitor",
     "bluetooth#group",
     "pulseaudio#group",
     "network"
@@ -60,6 +63,34 @@
     "format-full": "󱈑 {capacity}%",
     "format-icons": ["󱊡", "󱊢", "󱊣"],
     "tooltip": false
+  },
+
+  "custom/updates": {
+    "format": "󰚰",
+    "return-type": "json",
+    "exec": "~/.config/waybar/scripts/updates-status.sh",
+    "interval": 1800,
+    "signal": 9,
+    "on-click": "~/.config/sway/scripts/update.sh"
+  },
+
+  "custom/wallpaper": {
+    "format": "󰸉",
+    "return-type": "json",
+    "exec": "~/.config/waybar/scripts/wallpaper-status.sh",
+    "interval": "once",
+    "signal": 8,
+    "on-click": "~/.config/sway/scripts/wallpaper-cycle.sh"
+  },
+
+  "idle_inhibitor": {
+    "format": "{icon}",
+    "format-icons": {
+      "activated": "󰅶",
+      "deactivated": "󰾪"
+    },
+    "tooltip-format-activated": "Inhibidor de reposo: activo\nLa pantalla no se bloqueará",
+    "tooltip-format-deactivated": "Inhibidor de reposo: inactivo\nBloqueo a los 3 min de inactividad"
   },
 
   "network": {

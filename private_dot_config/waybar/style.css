@@ -1,13 +1,24 @@
 * {
-  font-family: "IBM Plex Sans";
-  font-size: 13px;
-  font-weight: 500;
+    font-family: "Inter Variable", sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+}
+
+/* TOOLTIP */
+tooltip {
+    background: rgba(255, 255, 255, 0.85);
+    border: 2px solid rgba(255, 255, 255, 0.9);
+    border-radius: 10px;
+}
+
+tooltip label {
+    color: #000000;
 }
 
 /* WAYBAR ROOT */
 window#waybar {
-  background: transparent;
-  color: #000;
+    background: transparent;
+    color: #000;
 }
 
 /* ===== BASE MODULE STYLE (Cajitas) ===== */
@@ -18,86 +29,114 @@ window#waybar {
 #backlight,
 #bluetooth,
 #pulseaudio,
+#custom-updates,
+#custom-wallpaper,
+#idle_inhibitor,
 #clock {
-  background: linear-gradient(to bottom,
-      rgba(255, 255, 255, 0.7) 0%,
-      rgba(142, 202, 230, 0.35) 50%,
-      rgba(142, 202, 230, 0.15) 50%,
-      rgba(255, 255, 255, 0.45) 100%);
-  border: 2px solid rgba(255, 255, 255, 0.9);
-  box-shadow: inset 0 1.5px 1.5px rgba(255, 255, 255, 1), 0 2px 4px rgba(0, 0, 0, 0.1);
-  margin: 6px 4px;
-  padding: 4px 12px;
-  border-radius: 12px;
-  color: #000000;
-  transition: all 0.2s ease-in-out;
+    background: linear-gradient(to bottom,
+            rgba(255, 255, 255, 0.7) 0%,
+            rgba(142, 202, 230, 0.35) 50%,
+            rgba(142, 202, 230, 0.15) 50%,
+            rgba(255, 255, 255, 0.45) 100%);
+    border: 2px solid rgba(255, 255, 255, 0.9);
+    box-shadow: inset 0 1.5px 1.5px rgba(255, 255, 255, 1), 0 3px 3px -3px rgba(0, 0, 0, 0.1);
+    margin: 6px 4px;
+    padding: 4px 12px;
+    border-radius: 12px;
+    color: #000000;
+    transition: all 0.2s ease-in-out;
 }
 
 #battery {
-  margin-right: 0;
-  border-right: none;
-  border-radius: 12px 0px 0px 12px;
+    margin-right: 0;
+    border-right: none;
+    border-radius: 12px 0px 0px 12px;
 }
 
 #backlight {
-  margin-left: 0;
-  border-left: none;
-  border-radius: 0px 12px 12px 0px;
+    margin-left: 0;
+    border-left: none;
+    border-radius: 0px 12px 12px 0px;
+}
+
+#custom-updates {
+    margin-right: 0;
+    border-right: none;
+    border-radius: 12px 0px 0px 12px;
+}
+
+#custom-wallpaper {
+    margin-left: 0;
+    margin-right: 0;
+    border-left: none;
+    border-right: none;
+    border-radius: 0px;
+}
+
+#idle_inhibitor {
+    margin-left: 0;
+    border-left: none;
+    border-radius: 0px 12px 12px 0px;
+}
+
+#idle_inhibitor.activated {
+    background: rgba(142, 202, 230, 0.9);
+    box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.15);
 }
 
 #bluetooth {
-  margin-right: 0;
-  border-right: none;
-  border-radius: 12px 0px 0px 12px;
+    margin-right: 0;
+    border-right: none;
+    border-radius: 12px 0px 0px 12px;
 }
 
 #pulseaudio {
-  margin-left: 0;
-  border-left: none;
-  border-radius: 0px 12px 12px 0px;
+    margin-left: 0;
+    border-left: none;
+    border-radius: 0px 12px 12px 0px;
 }
 
 
 /* ===== LEFT SIDE ===== */
 #workspaces {
-  margin-left: 15px;
-  padding: 0px 4px;
+    margin-left: 15px;
+    padding: 0px 4px;
 }
 
 #workspaces button {
-  all: initial;
-  padding: 0 10px;
-  margin: 4px 2px;
-  color: #000000;
-  border-radius: 8px;
+    all: initial;
+    padding: 0 10px;
+    margin: 4px 2px;
+    color: #000000;
+    border-radius: 8px;
 }
 
 #workspaces button:hover {
-  background: rgba(255, 255, 255, 0.6);
+    background: rgba(255, 255, 255, 0.6);
 }
 
 #workspaces button.active,
 #workspaces button.focused {
-  background: rgba(255, 255, 255, 0.4);
-  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.1);
+    background: rgba(255, 255, 255, 0.4);
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.1);
 }
 
 /* ===== CENTER ===== */
 #clock {
-  padding: 4px 16px;
+    padding: 4px 16px;
 }
 
 /* ===== RIGHT SIDE ===== */
 #network {
-  margin-right: 15px;
+    margin-right: 15px;
 }
 
 /* TRAY */
 #tray {
-  margin: 6px 3px;
-  background: rgba(255, 255, 255, 0.2);
-  border-radius: 12px;
-  padding: 0 8px;
+    margin: 6px 3px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 12px;
+    padding: 0 8px;
 }
 
 /* HOVER EFFECT */
@@ -106,7 +145,10 @@ window#waybar {
 #backlight:hover,
 #bluetooth:hover,
 #pulseaudio:hover,
+#custom-updates:hover,
+#custom-wallpaper:hover,
+#idle_inhibitor:hover,
 #mode:hover {
-  background: rgba(142, 202, 230, 0.8);
-  box-shadow: inset 0 1px 2px rgba(255, 255, 255, 1), 0 0 10px rgba(142, 202, 230, 0.5);
+    background: rgba(142, 202, 230, 0.8);
+    box-shadow: inset 0 1px 2px rgba(255, 255, 255, 1), 0 0 10px rgba(142, 202, 230, 0.5);
 }
