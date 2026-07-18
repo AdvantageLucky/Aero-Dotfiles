@@ -3,7 +3,7 @@ function fish_right_prompt
 
     set -l runtime ""
     
-    # Python
+    # Python / Django
     if test -f manage.py -o -f requirements.txt -o -f pyproject.toml
         set runtime "Py"
     # Java
