@@ -55,15 +55,18 @@ sudo pacman -S --needed --noconfirm \
     swaybg swayidle waybar fuzzel mako autotiling-rs wlsunset \
     xorg-xwayland wl-clipboard polkit-gnome \
     grim slurp swappy \
-    brightnessctl papirus-icon-theme
+    brightnessctl papirus-icon-theme oxygen-cursors
 
 # @Audio y Red
 print_step "Instalando Audio y Red..."
 sudo pacman -S --needed --noconfirm \
     pipewire pipewire-pulse pipewire-alsa pipewire-jack wireplumber pavucontrol playerctl \
+    mpd mpdscribble rmpc \
     networkmanager nm-connection-editor bluez bluez-utils blueman
 sudo systemctl enable --now NetworkManager
 sudo systemctl enable --now bluetooth
+systemctl --user enable mpd.socket
+systemctl --user enable mpdscribble
 
 # @Terminal y Shell
 print_step "Instalando Terminal, Shell y utilidades CLI..."

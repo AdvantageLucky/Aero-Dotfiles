@@ -4,6 +4,7 @@
 *   **Drivers:** intel-ucode, mesa, vulkan-intel, intel-media-driver
 *   **Gestión Energía:** tlp (habilitado por defecto)
 *   **Audio:** Pipewire, Wireplumber, Pavucontrol
+*   **Música:** mpd (daemon, vía mpd.socket), mpdscribble (scrobbler), rmpc (cliente TUI)
 *   **Red:** NetworkManager, Bluetooth (bluez)
 *   **WM:** SwayFX, Waybar, Mako, Fuzzel, Swaybg, Swayidle
 *   **Utilidades:** Grim, Slurp, Swappy, Brightnessctl, Btop, Fzf, FD, Bat, Ripgrep, Eza, Zoxide, Wget, Unzip, Zip, P7zip, Fortune-mod

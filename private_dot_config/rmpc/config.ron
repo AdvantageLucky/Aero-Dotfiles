@@ -1,0 +1,94 @@
+#![enable(implicit_some)]
+#![enable(unwrap_newtypes)]
+#![enable(unwrap_variant_newtypes)]
+(
+    scrolloff: 5,
+    ignore_leading_the: true,
+    theme: "aero-deck",
+    on_song_change: ["~/.config/rmpc/scripts/on_song_change.sh"],
+    lyrics_dir: "~/.local/share/rmpc/lyrics",
+    album_art: (
+        method: Kitty,
+    ),
+    search: (
+        case_sensitive: false,
+        ignore_diacritics: true,
+        search_button: false,
+        mode: Contains,
+        tags: [
+            (value: "any",         label: "Any Tag"),
+            (value: "artist",      label: "Artist"),
+            (value: "album",       label: "Album"),
+            (value: "albumartist", label: "Album Artist"),
+            (value: "title",       label: "Title"),
+            (value: "filename",    label: "Filename"),
+            (value: "genre",       label: "Genre"),
+        ],
+    ),
+    keybinds: (
+        global: {
+            "1": SwitchToTab("Cola"),
+            "2": SwitchToTab("Artistas"),
+            "3": SwitchToTab("Álbumes"),
+            "4": SwitchToTab("Archivos"),
+            "5": SwitchToTab("Listas"),
+            "6": SwitchToTab("Buscar"),
+            "7": SwitchToTab("Letras"),
+        },
+    ),
+    artists: (
+        album_display_mode: SplitByDate,
+        album_sort_by: Date,
+        album_date_tags: [OriginalDate, Date],
+    ),
+    tabs: [
+        (
+            name: "Cola",
+            pane: Split(direction: Horizontal, panes: [
+                (size: "34%", pane: Split(direction: Vertical, panes: [
+                    (size: "62%", borders: "ALL", border_symbols: Rounded,
+                        border_title: [(kind: Text("╴󰀥 Ahora suena ╶"), style: (fg: "#7dc4ff"))],
+                        border_title_position: Top,
+                        border_title_alignment: Center,
+                        pane: Pane(AlbumArt)),
+                    (size: "38%", borders: "ALL", border_symbols: Rounded,
+                        border_title: [(kind: Text("╴󰨖 Letras ╶"), style: (fg: "#7dc4ff"))],
+                        border_title_position: Top,
+                        border_title_alignment: Center,
+                        pane: Pane(Lyrics)),
+                ])),
+                (size: "66%", pane: Split(direction: Vertical, panes: [
+                    (size: "100%", borders: "ALL", border_symbols: Rounded,
+                        border_title: [(kind: Text("╴󰐑 Cola ╶"), style: (fg: "#7dc4ff"))],
+                        border_title_position: Top,
+                        border_title_alignment: Center,
+                        pane: Pane(Queue)),
+                    (size: "8", borders: "ALL", border_symbols: Rounded,
+                        pane: Pane(Cava)),
+                ])),
+            ]),
+        ),
+        (name: "Artistas", pane: Pane(Artists)),
+        (name: "Álbumes", pane: Pane(Albums)),
+        (name: "Archivos", pane: Pane(Directories)),
+        (name: "Listas", pane: Pane(Playlists)),
+        (name: "Buscar", pane: Pane(Search)),
+        (name: "Letras", pane: Pane(Lyrics)),
+    ],
+    cava: (
+        framerate: 60,
+        autosens: true,
+        input: (
+            method: Fifo,
+            source: "/tmp/mpd.fifo",
+            sample_rate: 44100,
+            channels: 2,
+            sample_bits: 16,
+        ),
+        smoothing: (
+            noise_reduction: 77,
+            monstercat: false,
+            waves: false,
+        ),
+    ),
+)
