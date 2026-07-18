@@ -24,8 +24,8 @@ fi
 run_once mako
 run_once autotiling-rs
 run_once wlsunset -l 19.4 -L -99.1
-pgrep -f polkit-gnome-authentication-agent-1 >/dev/null || \
-    /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
+pgrep -f polkit-mate-authentication-agent-1 >/dev/null || \
+    /usr/lib/mate-polkit/polkit-mate-authentication-agent-1 &
 
 # GTK theme
 gsettings set org.gnome.desktop.interface gtk-theme 'Windows Longhorn Plex'
