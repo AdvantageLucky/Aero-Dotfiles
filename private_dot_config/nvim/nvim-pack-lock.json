@@ -93,6 +93,10 @@
       "rev": "3f3eea97b80839f629c951ca660ffd125bfa5b34",
       "src": "https://github.com/MeanderingProgrammer/render-markdown.nvim"
     },
+    "snacks.nvim": {
+      "rev": "882c996cf28183f4d63640de0b4c02ec886d01f2",
+      "src": "https://github.com/folke/snacks.nvim"
+    },
     "telescope-frecency.nvim": {
       "rev": "5479d8a269e30479280c59e44f805396127653e6",
       "src": "https://github.com/nvim-telescope/telescope-frecency.nvim"

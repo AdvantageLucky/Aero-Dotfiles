@@ -34,6 +34,9 @@ vim.pack.add({
 	{ src = "https://github.com/catgoose/nvim-colorizer.lua" },
 	{ src = "https://github.com/vyfor/cord.nvim" },
 
+	-- Snacks
+	{ src = "https://github.com/folke/snacks.nvim" },
+
 	-- Parser
 	{ src = "https://github.com/nvim-treesitter/nvim-treesitter" },
 
@@ -71,6 +74,9 @@ require("plugins.lsp.completions.nvim_cmp")
 require("plugins.utils.misc.autopairs")
 require("plugins.utils.misc.colorizer")
 require("plugins.utils.misc.discord")
+
+-- Snacks
+require("plugins.utils.snacks.snacks")
 
 -- Parser
 require("plugins.utils.parser.treesitter")
