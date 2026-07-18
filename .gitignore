@@ -1,11 +1,11 @@
-# Estado de nvim (no es configuración)
+# Estado de nvim
 private_dot_config/nvim/undodir/
 private_dot_config/nvim/spell/
 
-# Estado de fish: cambia solo y puede acumular secretos exportados
+# Estado de fish
 private_dot_config/private_fish/private_fish_variables
 
-# Archivos temporales de editores
+# Archivos temporales
 *.swp
 *.swo
 *~
